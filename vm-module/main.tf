@@ -11,7 +11,7 @@ terraform {
 resource "proxmox_vm_qemu" "terrform-vm" {
   name        = var.vm_name
   desc        = var.description
-  target_node = each.value.target_node
+  target_node = var.target_node
   os_type     = "cloud-init"
   full_clone  = true
   memory      = var.memory
