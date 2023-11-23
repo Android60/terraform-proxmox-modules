@@ -33,7 +33,8 @@ resource "proxmox_vm_qemu" "terrform-vm" {
   }
 
   # Cloud-init section
-  ipconfig0 = "ip=dhcp"
-  sshkeys   = var.ssh_keys
+  ipconfig0  = "ip=dhcp"
+  sshkeys    = var.ssh_keys
+  nameserver = var.nameserver
 }
 

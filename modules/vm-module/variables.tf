@@ -78,4 +78,8 @@ variable "ssh_keys" {
   default     = null
 }
 
-
+variable "nameserver" {
+  description = "Sets default DNS server for guest"
+  type        = string
+  default     = ""
+}
