@@ -19,7 +19,7 @@ resource "proxmox_vm_qemu" "terrform-vm" {
   cores       = var.cores
   cpu         = "host"
   scsihw      = "virtio-scsi-pci"
-  clone       = var.k8s_source_template
+  clone       = var.clone_template
   agent       = 1
   disk {
     size    = var.disk_size

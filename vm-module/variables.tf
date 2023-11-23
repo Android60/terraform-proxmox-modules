@@ -13,6 +13,11 @@ variable "target_node" {
   type        = string
 }
 
+variable "clone_template" {
+  description = "The base VM from which to clone to create the new VM"
+  type        = string
+}
+
 # ---------------------------------------------------------------------------------------------------------------------
 # OPTIONAL PARAMETERS
 # These parameters have reasonable defaults.
@@ -72,3 +77,5 @@ variable "ssh_keys" {
   type        = string
   default     = null
 }
+
+
