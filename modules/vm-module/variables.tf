@@ -83,3 +83,9 @@ variable "nameserver" {
   type        = string
   default     = ""
 }
+
+variable "remote_exec" {
+  description = "Script to run when provisioning"
+  type        = list(string)
+  default     = []
+}
