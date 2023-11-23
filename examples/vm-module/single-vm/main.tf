@@ -14,7 +14,7 @@ provider "proxmox" {
 
 
 module "proxmox_vm" {
-  source         = "../../../vm-module/"
+  source         = "../../../modules/vm-module/"
   vm_name        = var.vm_name
   target_node    = var.target_node
   clone_template = var.clone_template
