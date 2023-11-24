@@ -3,7 +3,7 @@
 # You must provide a value for each of these parameters.
 # ---------------------------------------------------------------------------------------------------------------------
 
-variable "vm_name" {
+variable "name" {
   description = "The name of the VM that will be created"
   type        = string
 }

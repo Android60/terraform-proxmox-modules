@@ -11,7 +11,7 @@ terraform {
 # VM resource without provisioner
 resource "proxmox_vm_qemu" "terrform-vm" {
   count       = length(var.remote_exec) > 0 ? 0 : 1
-  name        = var.vm_name
+  name        = var.name
   desc        = var.description
   target_node = var.target_node
   os_type     = "cloud-init"
