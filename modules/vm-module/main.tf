@@ -48,7 +48,7 @@ resource "proxmox_vm_qemu" "terrform-vm-provisioner" {
   desc            = var.description
   target_node     = var.target_node
   os_type         = "cloud-init"
-  full_clone      = true
+  full_clone      = var.full_clone
   memory          = var.memory
   sockets         = var.sockets
   cores           = var.cores

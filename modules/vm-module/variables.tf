@@ -101,3 +101,9 @@ variable "ssh_privkey" {
   type        = string
   default     = null
 }
+
+variable "full_clone" {
+  description = "Set to true to create a full clone, or false to create a linked clone"
+  type        = bool
+  default     = true
+}
