@@ -12,9 +12,9 @@ resource "proxmox_lxc" "webservers-lxc" {
   hostname    = var.name
   password    = var.root_password
   description = var.description
-  target_node = each.value.target_node
-  memory      = each.value.memory
-  cores       = each.value.vcpu
+  target_node = var.target_node
+  memory      = var.memory
+  cores       = var.cores
   ostemplate  = var.source_template
   start       = true
   onboot      = true
