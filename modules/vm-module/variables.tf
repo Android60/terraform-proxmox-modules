@@ -107,3 +107,15 @@ variable "full_clone" {
   type        = bool
   default     = true
 }
+
+variable "cpu_type" {
+  description = "The type of CPU to emulate in the Guest"
+  type        = string
+  default     = "host"
+}
+
+variable "scsi_controller_type" {
+  description = "The SCSI controller type to emulate"
+  type        = string
+  default     = "virtio-scsi-pci"
+}

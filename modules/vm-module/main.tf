@@ -52,8 +52,8 @@ resource "proxmox_vm_qemu" "terrform-vm-provisioner" {
   memory          = var.memory
   sockets         = var.sockets
   cores           = var.cores
-  cpu             = "host"
-  scsihw          = "virtio-scsi-pci"
+  cpu             = var.cpu_type
+  scsihw          = var.scsi_controller_type
   clone           = var.clone_template
   agent           = 1
   ssh_private_key = var.ssh_privkey
