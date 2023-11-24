@@ -43,19 +43,21 @@ resource "proxmox_vm_qemu" "terrform-vm" {
 
 # VM resource with provisioner
 resource "proxmox_vm_qemu" "terrform-vm-provisioner" {
-  count       = length(var.remote_exec) > 0 ? 1 : 0
-  name        = var.vm_name
-  desc        = var.description
-  target_node = var.target_node
-  os_type     = "cloud-init"
-  full_clone  = true
-  memory      = var.memory
-  sockets     = var.sockets
-  cores       = var.cores
-  cpu         = "host"
-  scsihw      = "virtio-scsi-pci"
-  clone       = var.clone_template
-  agent       = 1
+  count           = length(var.remote_exec) > 0 ? 1 : 0
+  name            = var.vm_name
+  desc            = var.description
+  target_node     = var.target_node
+  os_type         = "cloud-init"
+  full_clone      = true
+  memory          = var.memory
+  sockets         = var.sockets
+  cores           = var.cores
+  cpu             = "host"
+  scsihw          = "virtio-scsi-pci"
+  clone           = var.clone_template
+  agent           = 1
+  ssh_private_key = var.ssh_privkey
+  ssh_user        = var.ssh_user
   disk {
     size    = var.disk_size
     type    = "scsi"

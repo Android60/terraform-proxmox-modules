@@ -89,3 +89,15 @@ variable "remote_exec" {
   type        = list(string)
   default     = []
 }
+
+variable "ssh_user" {
+  description = "The user with which to connect to the guest for preprovisioning"
+  type        = string
+  default     = null
+}
+
+variable "ssh_privkey" {
+  description = "The private key to use when connecting to the guest for provisioning"
+  type        = string
+  default     = null
+}
