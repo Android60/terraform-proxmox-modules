@@ -44,7 +44,7 @@ resource "proxmox_vm_qemu" "terrform-vm" {
 # VM resource with provisioner
 resource "proxmox_vm_qemu" "terrform-vm-provisioner" {
   count           = length(var.remote_exec) > 0 ? 1 : 0
-  name            = var.vm_name
+  name            = var.name
   desc            = var.description
   target_node     = var.target_node
   os_type         = "cloud-init"
