@@ -24,8 +24,11 @@ variable "clone_template" {
 # OPTIONAL PARAMETERS
 # These parameters have reasonable defaults.
 # ---------------------------------------------------------------------------------------------------------------------
-
-
+variable "remote_exec" {
+  description = "Script to run"
+  type        = list(string)
+  default     = ["echo \"Hello, World from $(uname -smp)\""]
+}
 
 variable "description" {
   description = "The description for the VM that will be created"

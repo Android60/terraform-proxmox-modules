@@ -18,4 +18,5 @@ module "proxmox_vm" {
   vm_name        = var.vm_name
   target_node    = var.target_node
   clone_template = var.clone_template
+  remote_exec    = var.remote_exec
 }
