@@ -9,7 +9,7 @@ terraform {
 }
 
 # VM resource without provisioner
-resource "proxmox_vm_qemu" "terrform-vm" {
+resource "proxmox_vm_qemu" "terraform-vm" {
   count       = length(var.remote_exec) > 0 ? 0 : 1
   name        = var.name
   desc        = var.description
@@ -42,7 +42,7 @@ resource "proxmox_vm_qemu" "terrform-vm" {
 
 
 # VM resource with provisioner
-resource "proxmox_vm_qemu" "terrform-vm-provisioner" {
+resource "proxmox_vm_qemu" "terraform-vm-provisioner" {
   count           = length(var.remote_exec) > 0 ? 1 : 0
   name            = var.name
   desc            = var.description
