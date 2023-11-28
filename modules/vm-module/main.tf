@@ -73,7 +73,7 @@ resource "proxmox_vm_qemu" "terraform-vm-provisioner" {
   ipconfig0  = "ip=dhcp"
   sshkeys    = var.ssh_keys
   nameserver = var.nameserver
-
+  ciuser     = var.ciuser
 
   provisioner "remote-exec" {
     inline = var.remote_exec
