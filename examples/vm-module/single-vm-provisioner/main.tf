@@ -21,4 +21,5 @@ module "proxmox_vm" {
   remote_exec    = var.remote_exec       # Script to execute on provisioning
   ssh_privkey    = file("~/.ssh/id_rsa") # Private key to use when provisioning
   ssh_user       = "debian"              # SSH user to use
+  ciuser         = "debian"
 }
