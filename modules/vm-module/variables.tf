@@ -90,6 +90,13 @@ variable "remote_exec" {
   default     = []
 }
 
+variable "ciuser" {
+  description = "Override the default cloud-init user for provisioning."
+  type        = string
+  default     = null
+
+}
+
 variable "ssh_user" {
   description = "The user with which to connect to the guest for preprovisioning"
   type        = string
