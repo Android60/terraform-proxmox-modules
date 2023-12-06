@@ -1,3 +1,13 @@
+func deployVm(t *testing.T, dbDir string, helloAppDir string) {
+	dbOpts := test_structure.LoadTerraformOptions(t, dbDir)
+	helloOpts := createHelloOpts(dbOpts, helloAppDir)
+	// Save data to disk so that other test stages executed at a later
+	// time can read the data back in
+	test_structure.SaveTerraformOptions(t, helloAppDir, helloOpts)
+
+	terraform.InitAndApply(t, helloOpts)
+}
+
 func TestVmWithStages(t *testing.T) {
 	t.Parallel()
 	// Store the function in a short variable name
