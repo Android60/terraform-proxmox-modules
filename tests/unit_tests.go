@@ -1,3 +1,5 @@
+const vmDirStage = "../examples/vm-module/single-vm/"
+
 func createVmOpts(t *testing.T, terraformDir string) *terraform.Options {
 	uniqueId := random.UniqueId()
 
