@@ -1,3 +1,14 @@
+package test
+
+import (
+	"fmt"
+	"github.com/gruntwork-io/terratest/modules/random"
+	"github.com/gruntwork-io/terratest/modules/terraform"
+	"github.com/gruntwork-io/terratest/modules/test-structure"
+	"testing"
+	"github.com/go-ping/ping"
+)
+
 const vmDirStage = "../examples/vm-module/single-vm/"
 
 func createVmOpts(t *testing.T, terraformDir string) *terraform.Options {
@@ -51,7 +62,6 @@ func pingVm(t *testing.T, vmOpts *terraform.Options) {
 	}
 	pinger.Count = 3
 	pinger.Run() // blocks until finished
-	stats := pinger.Statistics() // get send/receive/rtt stats
 }
 
 func TestProxmoxVmWithStages(t *testing.T) {
