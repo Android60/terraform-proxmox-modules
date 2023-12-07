@@ -36,6 +36,11 @@ func teardownVm(t *testing.T, vmDir string) {
 	defer terraform.Destroy(t, vmOpts)
 }
 
+func validateVm(t *testing.T, vmDir string) {
+	vmOpts := test_structure.LoadTerraformOptions(t, vmDir)
+	pingVm(t, vmOpts)
+}
+
 func TestProxmoxVmWithStages(t *testing.T) {
 	t.Parallel()
 	// Store the function in a short variable name
@@ -44,5 +49,5 @@ func TestProxmoxVmWithStages(t *testing.T) {
 	defer stage(t, "teardown_vm", func() { teardownVm(t, vmDirStage) })
 	stage(t, "deploy_vm", func() { deployVm(t, vmDirStage) })
 	// Validate that VM is pinging
-	stage(t, "ping_vm", func() { pingVm(t, vmDirStage) })
+	stage(t, "ping_vm", func() { validateVm(t, vmDirStage) })
 }
