@@ -41,6 +41,19 @@ func validateVm(t *testing.T, vmDir string) {
 	pingVm(t, vmOpts)
 }
 
+func pingVm(t *testing.T, vmOpts *terraform.Options) {
+	vmAddr := terraform.OutputRequired(t, vmOpts, "proxmox_vm_ip_address")
+
+	// Ping VM
+	pinger, err := ping.NewPinger(vmAddr)
+	if err != nil {
+			panic(err)
+	}
+	pinger.Count = 3
+	pinger.Run() // blocks until finished
+	stats := pinger.Statistics() // get send/receive/rtt stats
+}
+
 func TestProxmoxVmWithStages(t *testing.T) {
 	t.Parallel()
 	// Store the function in a short variable name
