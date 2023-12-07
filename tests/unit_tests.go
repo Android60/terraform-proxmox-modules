@@ -28,7 +28,7 @@ func deployVm(t *testing.T, vmAppDir string) {
 	terraform.InitAndApply(t, vmOpts)
 }
 
-func TestVmWithStages(t *testing.T) {
+func TestProxmoxVmWithStages(t *testing.T) {
 	t.Parallel()
 	// Store the function in a short variable name
 	stage := test_structure.RunTestStage
