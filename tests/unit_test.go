@@ -82,7 +82,7 @@ func pingVm(t *testing.T, vmOpts *terraform.Options) {
 	pinger.Run() // blocks until finished
 }
 
-func TestProxmoxVmWithStages(t *testing.T) {
+func TestProxmoxSingleVmWithStages(t *testing.T) {
 	t.Parallel()
 	// Store the function in a short variable name
 	stage := test_structure.RunTestStage
