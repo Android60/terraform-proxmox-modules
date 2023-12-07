@@ -21,13 +21,19 @@ func createVmOpts(t *testing.T, terraformDir string) *terraform.Options {
 	}
 }
 
-func deployVm(t *testing.T, vmAppDir string) {
-	vmOpts := createVmOpts(t, vmAppDir)
+
+func deployVm(t *testing.T, vmDir string) {
+	vmOpts := createVmOpts(t, vmDir)
 	// Save data to disk so that other test stages executed at a later
 	// time can read the data back in
-	test_structure.SaveTerraformOptions(t, vmAppDir, vmOpts)
+	test_structure.SaveTerraformOptions(t, vmDir, vmOpts)
 
 	terraform.InitAndApply(t, vmOpts)
+}
+
+func teardownVm(t *testing.T, vmDir string) {
+	vmOpts := test_structure.LoadTerraformOptions(t, vmDir)
+	defer terraform.Destroy(t, vmOpts)
 }
 
 func TestProxmoxVmWithStages(t *testing.T) {
