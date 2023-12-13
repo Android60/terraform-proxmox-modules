@@ -3,3 +3,4 @@
 **.tfstate
 **.tfstate.backup
 **TerraformOptions.json
+**.terragrunt-cache/
