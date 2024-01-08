@@ -17,7 +17,7 @@ resource "proxmox_lxc" "webservers-lxc" {
   cores       = var.cores
   ostemplate  = var.source_template
   start       = true
-  onboot      = true
+  onboot      = var.onboot
   nameserver  = var.nameserver
   rootfs {
     size    = var.disk_size
