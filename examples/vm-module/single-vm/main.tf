@@ -18,5 +18,6 @@ module "proxmox_vm" {
   name           = var.vm_name
   target_node    = var.target_node
   clone_template = var.clone_template
+  onboot         = true
   ciuser         = "debian"
 }
