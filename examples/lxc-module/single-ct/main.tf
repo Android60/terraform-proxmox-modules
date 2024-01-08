@@ -19,4 +19,5 @@ module "lxc_ct" {
   root_password   = var.root_password
   target_node     = var.target_node
   source_template = var.source_template
+  onboot          = true
 }
