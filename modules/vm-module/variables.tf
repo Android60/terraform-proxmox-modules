@@ -126,3 +126,9 @@ variable "scsi_controller_type" {
   type        = string
   default     = "virtio-scsi-pci"
 }
+
+variable "onboot" {
+  description = "Whether to have the VM startup after the PVE node starts."
+  type        = bool
+  default     = false
+}
