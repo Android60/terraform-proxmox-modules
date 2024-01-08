@@ -92,3 +92,9 @@ variable "gw" {
   type        = string
   default     = null
 }
+
+variable "onboot" {
+  description = "Whether to have the container startup after the PVE node starts."
+  type        = bool
+  default     = false
+}
