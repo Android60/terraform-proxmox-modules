@@ -22,6 +22,7 @@ resource "proxmox_vm_qemu" "terraform-vm" {
   cpu         = "host"
   scsihw      = "virtio-scsi-pci"
   clone       = var.clone_template
+  onboot      = var.onboot
   agent       = 1
   disk {
     size    = var.disk_size
