@@ -56,6 +56,7 @@ resource "proxmox_vm_qemu" "terraform-vm-provisioner" {
   cpu             = var.cpu_type
   scsihw          = var.scsi_controller_type
   clone           = var.clone_template
+  onboot          = var.onboot
   agent           = 1
   ssh_private_key = var.ssh_privkey
   ssh_user        = var.ssh_user
