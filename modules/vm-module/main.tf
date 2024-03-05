@@ -3,7 +3,7 @@ terraform {
   required_providers {
     proxmox = {
       source  = "telmate/proxmox"
-      version = "2.9.10"
+      version = "3.0.1-rc1"
     }
   }
 }
@@ -24,10 +24,15 @@ resource "proxmox_vm_qemu" "terraform-vm" {
   clone       = var.clone_template
   onboot      = var.onboot
   agent       = 1
-  disk {
-    size    = var.disk_size
-    type    = "scsi"
-    storage = var.storage_pool
+  disks {
+    scsi {
+      scsi0 {
+        disk {
+          size    = var.disk_size
+          storage = var.storage_pool
+        }
+      }
+    }
   }
   network {
     model  = "virtio"
@@ -60,10 +65,15 @@ resource "proxmox_vm_qemu" "terraform-vm-provisioner" {
   agent           = 1
   ssh_private_key = var.ssh_privkey
   ssh_user        = var.ssh_user
-  disk {
-    size    = var.disk_size
-    type    = "scsi"
-    storage = var.storage_pool
+  disks {
+    scsi {
+      scsi0 {
+        disk {
+          size    = var.disk_size
+          storage = var.storage_pool
+        }
+      }
+    }
   }
   network {
     model  = "virtio"
