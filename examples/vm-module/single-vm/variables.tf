@@ -17,7 +17,7 @@ variable "target_node" {
 variable "clone_template" {
   description = "The base VM from which to clone to create the new VM"
   type        = string
-  default     = "debian11-cloudinit-template-node2"
+  default     = "debian11-cloudinit-v3-node2"
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
