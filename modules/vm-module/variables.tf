@@ -74,7 +74,7 @@ variable "bridge" {
 
 variable "ssh_keys" {
   description = "Newline delimited list of SSH public keys to add to authorized keys file for the cloud-init user."
-  type        = string
+  type        = list(string)
   default     = null
 }
 
