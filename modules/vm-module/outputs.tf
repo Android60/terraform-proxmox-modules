@@ -1,9 +1,9 @@
 output "ip_address" {
-  value       = try(proxmox_vm_qemu.terraform-vm[0].default_ipv4_address, proxmox_vm_qemu.terraform-vm-provisioner[0].default_ipv4_address)
+  value       = proxmox_virtual_environment_vm.vm.ipv4_addresses[1]
   description = "IP address of VM"
 }
 
 output "vmid" {
-  value       = try(proxmox_vm_qemu.terraform-vm[0].vmid, proxmox_vm_qemu.terraform-vm-provisioner[0].vmid)
+  value       = proxmox_virtual_environment_vm.vm.vm_id
   description = "VM ID"
 }
