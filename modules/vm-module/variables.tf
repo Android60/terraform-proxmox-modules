@@ -50,8 +50,8 @@ variable "sockets" {
 
 variable "disk_size" {
   description = "The size of the created disk"
-  type        = number
-  default     = "16"
+  type        = string
+  default     = "16G"
 }
 
 variable "storage_pool" {
