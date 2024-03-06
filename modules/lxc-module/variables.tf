@@ -47,7 +47,7 @@ variable "cores" {
 
 variable "ssh_keys" {
   description = "Multi-line string of SSH public keys that will be added to the container. Can be defined using heredoc syntax"
-  type        = string
+  type        = list(string)
   default     = null
 }
 
@@ -58,9 +58,9 @@ variable "nameserver" {
 }
 
 variable "disk_size" {
-  description = "The size of the created disk"
+  description = "The size of the created disk (in GB)"
   type        = string
-  default     = "16G"
+  default     = "16"
 }
 
 variable "storage_pool" {
