@@ -1,5 +1,5 @@
 # Terraform Proxmox modules
-## This is [bpg](https://registry.terraform.io/providers/bpg/proxmox/latest) branch
+## This is module is using [bpg/proxmox](https://registry.terraform.io/providers/bpg/proxmox/latest) provider
 This repo contains Terraform modules for Proxmox.
 
 # Requirements
