@@ -50,8 +50,8 @@ variable "sockets" {
 
 variable "disk_size" {
   description = "The size of the created disk"
-  type        = string
-  default     = "16G"
+  type        = number
+  default     = "16"
 }
 
 variable "storage_pool" {
@@ -74,14 +74,14 @@ variable "bridge" {
 
 variable "ssh_keys" {
   description = "Newline delimited list of SSH public keys to add to authorized keys file for the cloud-init user."
-  type        = string
+  type        = list(string)
   default     = null
 }
 
 variable "nameserver" {
-  description = "Sets default DNS server for guest"
-  type        = string
-  default     = ""
+  description = "Sets list of DNS servers for guest"
+  type        = list(string)
+  default     = null
 }
 
 variable "remote_exec" {
@@ -131,4 +131,16 @@ variable "onboot" {
   description = "Whether to have the VM startup after the PVE node starts."
   type        = bool
   default     = false
+}
+
+variable "user" {
+  description = "CloudInit user"
+  type        = string
+  default     = null
+}
+
+variable "password" {
+  description = "Override CloudInit password"
+  type        = string
+  default     = null
 }

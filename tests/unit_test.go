@@ -21,7 +21,7 @@ func createVmOpts(t *testing.T, terraformDir string) *terraform.Options {
 		TerraformDir: terraformDir,
 		Reconfigure: true,
 		Vars: map[string]interface{}{
-		"vm_name": fmt.Sprintf("test%s", uniqueId),
+		"vm_name": fmt.Sprintf("test-%s", uniqueId),
 		},
 		BackendConfig: map[string]interface{}{
 			"bucket": bucketForTesting,

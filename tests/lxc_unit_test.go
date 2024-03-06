@@ -20,7 +20,7 @@ func createLxcOpts(t *testing.T, terraformDir string) *terraform.Options {
 		TerraformDir: terraformDir,
 		Reconfigure: true,
 		Vars: map[string]interface{}{
-		"lxc_name": fmt.Sprintf("test%s", uniqueId),
+		"lxc_name": fmt.Sprintf("test-%s", uniqueId),
 		"root_password": genPass,
 		},
 		BackendConfig: map[string]interface{}{

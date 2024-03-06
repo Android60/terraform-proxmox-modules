@@ -1,15 +1,15 @@
 terraform {
   required_providers {
     proxmox = {
-      source  = "telmate/proxmox"
-      version = "2.9.14"
+      source  = "bpg/proxmox"
+      version = "0.48.1"
     }
   }
 }
 
 provider "proxmox" {
-  pm_tls_insecure = true
-  pm_timeout      = 900
+  # pm_tls_insecure = true
+  # pm_timeout      = 900
 }
 
 
