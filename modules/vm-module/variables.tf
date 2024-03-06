@@ -50,8 +50,8 @@ variable "sockets" {
 
 variable "disk_size" {
   description = "The size of the created disk"
-  type        = string
-  default     = "16G"
+  type        = number
+  default     = "16"
 }
 
 variable "storage_pool" {
@@ -79,9 +79,9 @@ variable "ssh_keys" {
 }
 
 variable "nameserver" {
-  description = "Sets default DNS server for guest"
-  type        = string
-  default     = ""
+  description = "Sets list of DNS servers for guest"
+  type        = list(string)
+  default     = null
 }
 
 variable "remote_exec" {
