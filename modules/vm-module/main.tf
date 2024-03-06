@@ -20,7 +20,9 @@ resource "proxmox_virtual_environment_vm" "vm" {
     sockets = var.sockets
     type    = var.cpu_type
   }
-
+  memory {
+    dedicated = var.memory
+  }
   scsi_hardware = var.scsi_controller_type
   clone {
     datastore_id = var.storage_pool
