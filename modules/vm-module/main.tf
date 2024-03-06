@@ -14,7 +14,14 @@ resource "proxmox_virtual_environment_vm" "vm" {
   description = var.description
   tags        = ["terraform", "ubuntu"]
   node_name   = var.target_node
+  on_boot     = var.onboot
+  cpu {
+    cores   = var.cores
+    sockets = var.sockets
+    type    = var.cpu_type
+  }
 
+  scsi_hardware = var.scsi_controller_type
   clone {
     datastore_id = var.storage_pool
     vm_id        = var.clone_template
@@ -29,6 +36,7 @@ resource "proxmox_virtual_environment_vm" "vm" {
   disk {
     datastore_id = var.storage_pool
     interface    = "scsi0"
+    size         = var.disk_size
   }
 
   initialization {
@@ -37,7 +45,9 @@ resource "proxmox_virtual_environment_vm" "vm" {
         address = "dhcp"
       }
     }
-
+    dns {
+      servers = var.nameserver
+    }
     user_account {
       keys = var.ssh_keys
       # password = random_password.ubuntu_vm_password.result
