@@ -12,7 +12,7 @@ terraform {
 resource "proxmox_virtual_environment_vm" "vm" {
   name        = var.name
   description = var.description
-  tags        = ["terraform", "ubuntu"]
+  tags        = var.tags
   node_name   = var.target_node
   on_boot     = var.onboot
   cpu {

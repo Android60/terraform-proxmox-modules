@@ -144,3 +144,9 @@ variable "password" {
   type        = string
   default     = null
 }
+
+variable "tags" {
+  description = "List of tags for VM"
+  type        = list(string)
+  default     = null
+}

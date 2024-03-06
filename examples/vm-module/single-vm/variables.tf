@@ -33,3 +33,8 @@ variable "description" {
   default     = "Managed by Terraform"
 }
 
+variable "tags" {
+  description = "List of tags for VM"
+  type        = list(string)
+  default     = null
+}
