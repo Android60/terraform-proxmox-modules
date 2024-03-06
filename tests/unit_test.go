@@ -11,9 +11,10 @@ import (
 
 const vmDirStage = "../examples/vm-module/single-vm/"
 
+
 func createVmOpts(t *testing.T, terraformDir string) *terraform.Options {
 	uniqueId := random.UniqueId()
-
+	tagList := []string{"testing", "terrafom"}
 	bucketForTesting := "myhomelab-xyz-terraform-up-n-run-example"
 	bucketRegionForTesting := "us-east-2"
 	vmStateKey := fmt.Sprintf("%s/%s/terraform.tfstate", t.Name(), uniqueId)
@@ -22,6 +23,7 @@ func createVmOpts(t *testing.T, terraformDir string) *terraform.Options {
 		Reconfigure: true,
 		Vars: map[string]interface{}{
 		"vm_name": fmt.Sprintf("test-%s", uniqueId),
+		"tags": tagList,
 		},
 		BackendConfig: map[string]interface{}{
 			"bucket": bucketForTesting,
