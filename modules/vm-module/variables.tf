@@ -132,3 +132,15 @@ variable "onboot" {
   type        = bool
   default     = false
 }
+
+variable "user" {
+  description = "CloudInit user"
+  type        = string
+  default     = null
+}
+
+variable "password" {
+  description = "Override CloudInit password"
+  type        = string
+  default     = null
+}

@@ -49,11 +49,13 @@ resource "proxmox_virtual_environment_vm" "vm" {
       servers = var.nameserver
     }
     user_account {
-      keys = var.ssh_keys
-      # password = random_password.ubuntu_vm_password.result
+      keys     = var.ssh_keys
+      username = var.user
+      password = var.password
     }
 
-    # user_data_file_id = proxmox_virtual_environment_file.cloud_config.id
+    # Conflicts with user_account
+    # user_data_file_id = "local:snippets/vendor.yaml"
   }
 
   network_device {
