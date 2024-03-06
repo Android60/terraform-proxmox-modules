@@ -2,34 +2,49 @@ terraform {
   required_version = ">= 1.0.0, < 2.0.0"
   required_providers {
     proxmox = {
-      source  = "telmate/proxmox"
-      version = "2.9.10"
+      source  = "bpg/proxmox"
+      version = "0.48.1"
     }
   }
 }
 
-resource "proxmox_lxc" "webservers-lxc" {
-  hostname    = var.name
-  password    = var.root_password
-  description = var.description
-  target_node = var.target_node
-  memory      = var.memory
-  cores       = var.cores
-  ostemplate  = var.source_template
-  start       = true
-  onboot      = var.onboot
-  nameserver  = var.nameserver
-  rootfs {
-    size    = var.disk_size
-    storage = var.storage_pool
-  }
-  network {
-    name   = "eth0"
-    bridge = var.bridge
-    tag    = var.vlan
-    ip     = var.ip
-    gw     = var.ip == "dhcp" ? null : var.gw
+resource "proxmox_virtual_environment_container" "container" {
+  description   = var.description
+  start_on_boot = var.onboot
+  node_name     = var.target_node
+  memory {
+    dedicated = var.memory
   }
 
-  ssh_public_keys = var.ssh_keys
+  disk {
+    datastore_id = var.storage_pool
+    size         = var.disk_size
+  }
+
+  initialization {
+    hostname = var.name
+
+    ip_config {
+      ipv4 {
+        address = var.ip
+        gateway = var.ip == "dhcp" ? null : var.gw
+      }
+    }
+
+    user_account {
+      keys     = var.ssh_keys
+      password = var.root_password
+    }
+  }
+
+  network_interface {
+    name    = "eth0"
+    vlan_id = var.vlan
+    bridge  = var.bridge
+
+  }
+
+  operating_system {
+    template_file_id = var.source_template
+  }
 }
