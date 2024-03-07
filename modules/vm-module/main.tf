@@ -22,6 +22,7 @@ resource "proxmox_virtual_environment_vm" "vm" {
   }
   memory {
     dedicated = var.memory
+    floating  = var.memory
   }
   scsi_hardware = var.scsi_controller_type
   clone {
