@@ -150,3 +150,21 @@ variable "tags" {
   type        = list(string)
   default     = null
 }
+
+variable "vga_enabled" {
+  description = "Whether to enable the VGA device"
+  type        = bool
+  default     = true
+}
+
+variable "vga_memory" {
+  description = "The VGA memory in megabytes"
+  type        = number
+  default     = null
+}
+
+variable "vga_type" {
+  description = "The VGA type"
+  type        = string
+  default     = "serial0"
+}

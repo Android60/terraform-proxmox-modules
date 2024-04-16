@@ -70,5 +70,10 @@ resource "proxmox_virtual_environment_vm" "vm" {
     type = "l26"
   }
 
+  vga {
+    enabled = var.vga_enabled
+    memory  = var.vga_memory
+    type    = var.vga_type
+  }
   serial_device {}
 }
