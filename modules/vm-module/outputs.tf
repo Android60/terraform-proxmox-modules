@@ -7,3 +7,7 @@ output "vmid" {
   value       = proxmox_virtual_environment_vm.vm.vm_id
   description = "VM ID"
 }
+
+output "name" {
+  value = proxmox_virtual_environment_vm.vm.name
+}
